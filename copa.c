@@ -633,7 +633,7 @@ selecao mata_mata(selecao a, selecao b){
     if(gols_a<gols_b){
         return b;
     }
-    selecao c = {0};
+    selecao c;
     return c;
 }
 
@@ -1655,7 +1655,7 @@ grupo simula_grupo(grupo a){
         switch (trocado)
         {
         case 1:
-            caso_final = 1;
+            caso_final = 5;
             break;
         case 2:
             caso_final = 2;
@@ -1987,13 +1987,111 @@ int main(){
         gru_j.c,gru_k.c,gru_l.c);
     passaram = ordena3(passaram, tabela);
     
-    selecao semi1 = mata_mata(mata_mata(mata_mata(gru_e.a,passaram.classificadas[3]),mata_mata(gru_i.a,passaram.classificadas[5])),mata_mata(mata_mata(gru_a.b,gru_b.b),mata_mata(gru_f.a,gru_c.b)));
-    selecao semi2 = mata_mata(mata_mata(mata_mata(gru_k.b,gru_l.b),mata_mata(gru_h.a,gru_j.b)),mata_mata(mata_mata(gru_d.a,passaram.classificadas[2]),mata_mata(gru_g.a,passaram.classificadas[4])));
-    selecao semi3 = mata_mata(mata_mata(mata_mata(gru_c.a,gru_f.b),mata_mata(gru_e.b,gru_i.b)),mata_mata(mata_mata(gru_a.a,passaram.classificadas[0]),mata_mata(gru_l.a,passaram.classificadas[7])));
-    selecao semi4 = mata_mata(mata_mata(mata_mata(gru_j.a,gru_h.b),mata_mata(gru_d.b,gru_g.b)),mata_mata(mata_mata(gru_b.a,passaram.classificadas[1]),mata_mata(gru_k.a,passaram.classificadas[6])));
-    selecao final1 = mata_mata(semi1,semi2);
-    selecao final2 = mata_mata(semi3,semi4);
-    printf("\n-----Final------\n");
-    selecao campea = mata_mata(final1,final2);
-    printf("%s",campea.nome);
-}
+    // ------------------------------------------------------------
+    // PRÉ-OITAVAS
+    // ------------------------------------------------------------
+    printf("\n--- PRE-OITAVAS ---\n");
+
+    printf("Pre-Oitavas 1\n");
+    selecao pre1 = mata_mata(gru_e.a, passaram.classificadas[3]);
+    selecao pre2 = mata_mata(gru_i.a, passaram.classificadas[5]);
+
+    printf("Pre-Oitavas 2\n");
+    selecao pre3 = mata_mata(gru_a.b, gru_b.b);
+    selecao pre4 = mata_mata(gru_f.a, gru_c.b);
+
+    printf("Pre-Oitavas 3\n");
+    selecao pre5 = mata_mata(gru_k.b, gru_l.b);
+    selecao pre6 = mata_mata(gru_h.a, gru_j.b);
+
+    printf("Pre-Oitavas 4\n");
+    selecao pre7 = mata_mata(gru_d.a, passaram.classificadas[2]);
+    selecao pre8 = mata_mata(gru_g.a, passaram.classificadas[4]);
+
+    printf("Pre-Oitavas 5\n");
+    selecao pre9  = mata_mata(gru_c.a, gru_f.b);
+    selecao pre10 = mata_mata(gru_e.b, gru_i.b);
+
+    printf("Pre-Oitavas 6\n");
+    selecao pre11 = mata_mata(gru_a.a, passaram.classificadas[0]);
+    selecao pre12 = mata_mata(gru_l.a, passaram.classificadas[7]);
+
+    printf("Pre-Oitavas 7\n");
+    selecao pre13 = mata_mata(gru_j.a, gru_h.b);
+    selecao pre14 = mata_mata(gru_d.b, gru_g.b);
+
+    printf("Pre-Oitavas 8\n");
+    selecao pre15 = mata_mata(gru_b.a, passaram.classificadas[1]);
+    selecao pre16 = mata_mata(gru_k.a, passaram.classificadas[6]);
+
+
+    // ------------------------------------------------------------
+    // OITAVAS
+    // ------------------------------------------------------------
+    printf("\n--- OITAVAS ---\n");
+
+    printf("Oitavas 1\n");
+    selecao oit1 = mata_mata(pre1,  pre2);
+
+    printf("Oitavas 2\n");
+    selecao oit2 = mata_mata(pre3,  pre4);
+
+    printf("Oitavas 3\n");
+    selecao oit3 = mata_mata(pre5,  pre6);
+
+    printf("Oitavas 4\n");
+    selecao oit4 = mata_mata(pre7,  pre8);
+
+    printf("Oitavas 5\n");
+    selecao oit5 = mata_mata(pre9,  pre10);
+
+    printf("Oitavas 6\n");
+    selecao oit6 = mata_mata(pre11, pre12);
+
+    printf("Oitavas 7\n");
+    selecao oit7 = mata_mata(pre13, pre14);
+
+    printf("Oitavas 8\n");
+    selecao oit8 = mata_mata(pre15, pre16);
+
+
+    // ------------------------------------------------------------
+    // QUARTAS
+    // ------------------------------------------------------------
+    printf("\n--- QUARTAS ---\n");
+
+    printf("Quartas 1\n");
+    selecao quartas1 = mata_mata(oit1, oit2);
+
+    printf("Quartas 2\n");
+    selecao quartas2 = mata_mata(oit3, oit4);
+
+    printf("Quartas 3\n");
+    selecao quartas3 = mata_mata(oit5, oit6);
+
+    printf("Quartas 4\n");
+    selecao quartas4 = mata_mata(oit7, oit8);
+
+
+    // ------------------------------------------------------------
+    // SEMIFINAIS
+    // ------------------------------------------------------------
+    printf("\n--- SEMIFINAIS ---\n");
+
+    printf("Semifinal 1\n");
+    selecao semi1 = mata_mata(quartas1, quartas2);
+
+    printf("Semifinal 2\n");
+    selecao semi2 = mata_mata(quartas3, quartas4);
+
+
+    // ------------------------------------------------------------
+    // FINAL
+    // ------------------------------------------------------------
+    printf("\n--- FINAL ---\n");
+
+    printf("Final\n");
+    selecao final1 = mata_mata(semi1, semi2);
+
+        printf("%s",final1.nome);
+    }
