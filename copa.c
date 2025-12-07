@@ -633,7 +633,7 @@ selecao mata_mata(selecao a, selecao b){
     if(gols_a<gols_b){
         return b;
     }
-    selecao c;
+    selecao c = {0};
     return c;
 }
 
@@ -1522,7 +1522,7 @@ grupo simula_grupo(grupo a){
     comparados[3] = compara(a.b, a.d, rodada_4);
     comparados[4] = compara(a.a, a.d, rodada_5);
     comparados[5] = compara(a.b, a.c, rodada_6);
-    if(a.a.pontos == a.b.pontos == a.c.pontos == a.d.pontos){
+    if(a.a.pontos == a.b.pontos && a.a.pontos == a.c.pontos && a.a.pontos == a.d.pontos){
         comparados[0] = compara_sem_confronto(a.a, a.b);
         comparados[1] = compara_sem_confronto(a.c, a.d);
         comparados[2] = compara_sem_confronto(a.a, a.c);
@@ -1530,22 +1530,22 @@ grupo simula_grupo(grupo a){
         comparados[4] = compara_sem_confronto(a.a, a.d);
         comparados[5] = compara_sem_confronto(a.b, a.c);
     }
-    if(a.a.pontos == a.b.pontos == a.c.pontos){
+    if(a.a.pontos == a.b.pontos && a.a.pontos == a.c.pontos){
         comparados[0] = compara_sem_confronto(a.a, a.b);
         comparados[2] = compara_sem_confronto(a.a, a.c);
         comparados[5] = compara_sem_confronto(a.b, a.c);
     }
-    if(a.a.pontos == a.b.pontos == a.d.pontos){
+    if(a.a.pontos == a.b.pontos && a.a.pontos == a.d.pontos){
         comparados[0] = compara_sem_confronto(a.a, a.b);
         comparados[4] = compara_sem_confronto(a.a, a.d);
         comparados[3] = compara_sem_confronto(a.b, a.d);
     }
-    if(a.a.pontos == a.d.pontos == a.c.pontos){
+    if(a.a.pontos == a.d.pontos && a.a.pontos == a.c.pontos){
         comparados[4] = compara_sem_confronto(a.a, a.d);
         comparados[2] = compara_sem_confronto(a.a, a.c);
         comparados[1] = compara_sem_confronto(a.c, a.d);
     }
-    if(a.d.pontos == a.b.pontos == a.c.pontos){
+    if(a.d.pontos == a.b.pontos && a.d.pontos == a.c.pontos){
         comparados[5] = compara_sem_confronto(a.b, a.c);
         comparados[3] = compara_sem_confronto(a.b, a.d);
         comparados[1] = compara_sem_confronto(a.c, a.d);
@@ -1707,22 +1707,23 @@ terceiros_passados melhores_terceiros(selecao a, selecao b, selecao c, selecao d
 
     return resp;
 }
-terceiros_passados ordena2(terceiros_passados x,  char y[]){
+terceiros_passados ordena2(terceiros_passados x, char y[]){
     terceiros_passados copia = x;
     for(int in = 0; in < 8; in++){
-        for(int jo = 0; jo< 8; jo++){
-        if(strcmp(x.grupos[in],y[jo])==0){
-            copia.classificadas[jo]=x.classificadas[in];
+        for(int jo = 0; jo < 8; jo++){
+            if(x.grupos[in] == y[jo]){
+                copia.classificadas[jo] = x.classificadas[in];
+            }
         }
     }
     return copia;
 }
-}
+
 terceiros_passados ordena(terceiros_passados x, char y[]){
     int contador = 0;
     for(int in = 0; in < 8; in++){
         for(int jo = 0; jo< 8; jo++){
-        if(strcmp(x.grupos[in],y[jo])==0){
+        if(x.grupos[in] == y[jo]){
             contador ++;
         }
     }
@@ -1739,6 +1740,7 @@ terceiros_passados ordena3(terceiros_passados x, char y[495][8]){
     for(int i = 0; i<495; i++ ){
         x = ordena(x,y[i]);
     }
+    return x;
 }
 int main(){
     //selecao brasil = cria_brasil();
