@@ -1,17 +1,17 @@
 #include "utils.h"
 
 const char *nomes_times[12][4] = {
-    {"Mexico", "Africa do Sul", "Coreia do Sul", "Vencedor PO4"}, // Grupo A
-    {"Canada", "Vencedor PO1", "Qatar", "Suica"},                // Grupo B
+    {"Mexico", "Africa do Sul", "Coreia do Sul", "Republica Tchequia"}, // Grupo A
+    {"Canada", "Bosnia", "Qatar", "Suica"},                // Grupo B
     {"Brasil", "Marrocos", "Haiti", "Escocia"},                  // Grupo C
-    {"USA", "Paraguai", "Australia", "Vencedor PO3"},            // Grupo D
+    {"USA", "Paraguai", "Australia", "Turquia"},            // Grupo D
     {"Alemanha", "Curacao", "Costa do Marfim", "Equador"},       // Grupo E
-    {"Holanda", "Japao", "Vencedor PO2", "Tunisia"},             // Grupo F
+    {"Holanda", "Japao", "Suecia", "Tunisia"},             // Grupo F
     {"Belgica", "Egito", "Iran", "Nova Zelandia"},               // Grupo G
     {"Espanha", "Cabo Verde", "Arabia Saudita", "Uruguai"},      // Grupo H
-    {"Franca", "Senegal", "Vencedor Rep A", "Noruega"},          // Grupo I
+    {"Franca", "Senegal", "Iraque", "Noruega"},          // Grupo I
     {"Argentina", "Argelia", "Austria", "Jordania"},             // Grupo J
-    {"Portugal", "Vencedor Rep B", "Uzbequistao", "Colombia"},   // Grupo K
+    {"Portugal", "Congo", "Uzbequistao", "Colombia"},   // Grupo K
     {"Inglaterra", "Croacia", "Gana", "Panama"}                  // Grupo L
 };
 
