@@ -479,66 +479,6 @@ int main(){
         }
     }
 
-    // ##################################################################
-    // Repescagens euro e mundo
-    // Faz a repescagem dos jogos e adiciona os membros faltantes na array grupos_copa
-    // 'R' de repescagem
-    // ##################################################################
-    RepescagemEuro po_4 = {
-        { 
-        criar_selecao("Dinamarca", 'R'), criar_selecao("Macedonia do Norte", 'R'), 
-        criar_selecao("Republica Tcheca", 'R'), criar_selecao("Irlanda", 'R') 
-        }
-    };
-    grupos_copa[0].selecoes[3] = rep_euro_jogos(po_4);
-    grupos_copa[0].selecoes[3].grupo = 'A';
-
-    RepescagemEuro po_3 = {
-        { 
-        criar_selecao("Turquia", 'R'), criar_selecao("Romenia", 'R'), 
-        criar_selecao("Eslovaquia", 'R'), criar_selecao("Kosovo", 'R') 
-        }
-    };
-    grupos_copa[3].selecoes[3] = rep_euro_jogos(po_3);
-    grupos_copa[3].selecoes[3].grupo = 'D';
-    
-    RepescagemEuro po_2 = {
-        { 
-            criar_selecao("Ucrania", 'R'), criar_selecao("Suecia", 'R'), 
-            criar_selecao("Polonia", 'R'), criar_selecao("Albania", 'R') 
-        }
-    };
-    grupos_copa[5].selecoes[2] = rep_euro_jogos(po_2);
-    grupos_copa[5].selecoes[2].grupo = 'F';
-    
-    RepescagemEuro po_1 = {
-        { 
-            criar_selecao("Italia", 'R'), criar_selecao("Irlanda do Norte", 'R'), 
-            criar_selecao("Pais de Gales", 'R'), criar_selecao("Bosnia", 'R') 
-        }
-    };
-    grupos_copa[1].selecoes[1] = rep_euro_jogos(po_1);
-    grupos_copa[1].selecoes[1].grupo = 'B';
-
-    RepescagemMundo rep_a = {
-        { 
-            criar_selecao("Iraque", 'R'), criar_selecao("Bolivia", 'R'), 
-            criar_selecao("Suriname", 'R') 
-        }
-    };
-    grupos_copa[8].selecoes[2] = rep_mundo_jogos(rep_a);
-    grupos_copa[8].selecoes[2].grupo = 'I';
-
-
-    RepescagemMundo rep_b = {
-        { 
-            criar_selecao("Congo", 'R'), criar_selecao("Jamaica", 'R'), 
-            criar_selecao("Nova Caledonia", 'R') 
-        }
-    };
-    grupos_copa[10].selecoes[1] = rep_mundo_jogos(rep_b);
-    grupos_copa[10].selecoes[1].grupo = 'K';
-
     // ######################################################
     // Exibição dos grupos
     // ######################################################
@@ -693,5 +633,5 @@ int main(){
     printf("Final\n");
     Selecao final1 = mata_mata(semi[0], semi[1]);
 
-        printf("%s",final1.nome);
+        printf("\n campeao: %s",final1.nome);
     }
